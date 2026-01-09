@@ -72,7 +72,15 @@ class _HomePageWidgetState extends State<HomePageWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [],
+            children: [
+              Container(
+                width: 411.0,
+                height: 303.28,
+                decoration: BoxDecoration(
+                  color: Color(0xFFFF0000),
+                ),
+              ),
+            ],
           ),
         ),
       ),
