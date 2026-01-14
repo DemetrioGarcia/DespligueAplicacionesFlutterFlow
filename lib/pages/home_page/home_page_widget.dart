@@ -75,9 +75,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             children: [
               Container(
                 width: 411.0,
-                height: 303.28,
+                height: 143.19,
                 decoration: BoxDecoration(
-                  color: Color(0xFFFF0000),
+                  color: Color(0x7900FFD9),
                 ),
               ),
             ],
