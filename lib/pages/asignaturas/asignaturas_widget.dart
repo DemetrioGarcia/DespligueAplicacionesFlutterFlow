@@ -366,8 +366,8 @@ class _AsignaturasWidgetState extends State<AsignaturasWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            context.pushNamed(CrearAsignaturaWidget.routeName);
                           },
                           text: 'Añadir Asignatura',
                           options: FFButtonOptions(
