@@ -291,12 +291,35 @@ class _AsignaturasWidgetState extends State<AsignaturasWidget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceEvenly,
                                             children: [
-                                              Icon(
-                                                Icons.replay,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 24.0,
+                                              InkWell(
+                                                splashColor: Colors.transparent,
+                                                focusColor: Colors.transparent,
+                                                hoverColor: Colors.transparent,
+                                                highlightColor:
+                                                    Colors.transparent,
+                                                onTap: () async {
+                                                  context.pushNamed(
+                                                    EditarAsignaturaWidget
+                                                        .routeName,
+                                                    queryParameters: {
+                                                      'asignatura':
+                                                          serializeParam(
+                                                        getJsonField(
+                                                          listViewItem,
+                                                          r'''$''',
+                                                        ),
+                                                        ParamType.JSON,
+                                                      ),
+                                                    }.withoutNulls,
+                                                  );
+                                                },
+                                                child: Icon(
+                                                  Icons.replay,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  size: 24.0,
+                                                ),
                                               ),
                                               Align(
                                                 alignment: AlignmentDirectional(

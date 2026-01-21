@@ -1,4 +1,3 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -13,7 +12,7 @@ class EditarAsignaturaWidget extends StatefulWidget {
     required this.asignatura,
   });
 
-  final AsignaturaRow? asignatura;
+  final dynamic asignatura;
 
   static String routeName = 'EditarAsignatura';
   static String routePath = '/editarAsignatura';
@@ -32,7 +31,11 @@ class _EditarAsignaturaWidgetState extends State<EditarAsignaturaWidget> {
     super.initState();
     _model = createModel(context, () => EditarAsignaturaModel());
 
-    _model.textController ??= TextEditingController();
+    _model.textController ??= TextEditingController(
+        text: getJsonField(
+      widget.asignatura,
+      r'''$.nombre''',
+    ).toString());
     _model.textFieldFocusNode ??= FocusNode();
   }
 

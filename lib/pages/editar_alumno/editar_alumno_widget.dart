@@ -1,4 +1,3 @@
-import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -15,7 +14,7 @@ class EditarAlumnoWidget extends StatefulWidget {
     required this.alumno,
   });
 
-  final AlumnosRow? alumno;
+  final dynamic alumno;
 
   static String routeName = 'EditarAlumno';
   static String routePath = '/editarAlumno';
@@ -34,10 +33,18 @@ class _EditarAlumnoWidgetState extends State<EditarAlumnoWidget> {
     super.initState();
     _model = createModel(context, () => EditarAlumnoModel());
 
-    _model.textController1 ??= TextEditingController();
+    _model.textController1 ??= TextEditingController(
+        text: getJsonField(
+      widget.alumno,
+      r'''$.Nombre''',
+    ).toString());
     _model.textFieldFocusNode1 ??= FocusNode();
 
-    _model.textController2 ??= TextEditingController();
+    _model.textController2 ??= TextEditingController(
+        text: getJsonField(
+      widget.alumno,
+      r'''$.Apellido''',
+    ).toString());
     _model.textFieldFocusNode2 ??= FocusNode();
   }
 

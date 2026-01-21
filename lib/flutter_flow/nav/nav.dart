@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '/backend/supabase/supabase.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -66,9 +65,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: EditarAlumnoWidget.routeName,
           path: EditarAlumnoWidget.routePath,
           builder: (context, params) => EditarAlumnoWidget(
-            alumno: params.getParam<AlumnosRow>(
+            alumno: params.getParam(
               'alumno',
-              ParamType.SupabaseRow,
+              ParamType.JSON,
             ),
           ),
         ),
@@ -76,9 +75,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: EditarAsignaturaWidget.routeName,
           path: EditarAsignaturaWidget.routePath,
           builder: (context, params) => EditarAsignaturaWidget(
-            asignatura: params.getParam<AsignaturaRow>(
+            asignatura: params.getParam(
               'asignatura',
-              ParamType.SupabaseRow,
+              ParamType.JSON,
             ),
           ),
         )

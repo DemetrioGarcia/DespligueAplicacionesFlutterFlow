@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 class EditarAlumnoModel extends FlutterFlowModel<EditarAlumnoWidget> {
   ///  Local state fields for this page.
 
-  int? alumno;
+  dynamic alumno;
 
   ///  State fields for stateful widgets in this page.
 
