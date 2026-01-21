@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '/backend/supabase/supabase.dart';
 
 import '/flutter_flow/flutter_flow_util.dart';
 
@@ -34,17 +35,52 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
-      errorBuilder: (context, state) => HomePageWidget(),
+      errorBuilder: (context, state) => AlumnosWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => HomePageWidget(),
+          builder: (context, _) => AlumnosWidget(),
         ),
         FFRoute(
-          name: HomePageWidget.routeName,
-          path: HomePageWidget.routePath,
-          builder: (context, params) => HomePageWidget(),
+          name: AlumnosWidget.routeName,
+          path: AlumnosWidget.routePath,
+          builder: (context, params) => AlumnosWidget(),
+        ),
+        FFRoute(
+          name: AsignaturasWidget.routeName,
+          path: AsignaturasWidget.routePath,
+          builder: (context, params) => AsignaturasWidget(),
+        ),
+        FFRoute(
+          name: CrearAlumnoWidget.routeName,
+          path: CrearAlumnoWidget.routePath,
+          builder: (context, params) => CrearAlumnoWidget(),
+        ),
+        FFRoute(
+          name: CrearAsignaturaWidget.routeName,
+          path: CrearAsignaturaWidget.routePath,
+          builder: (context, params) => CrearAsignaturaWidget(),
+        ),
+        FFRoute(
+          name: EditarAlumnoWidget.routeName,
+          path: EditarAlumnoWidget.routePath,
+          builder: (context, params) => EditarAlumnoWidget(
+            alumno: params.getParam<AlumnosRow>(
+              'alumno',
+              ParamType.SupabaseRow,
+            ),
+          ),
+        ),
+        FFRoute(
+          name: EditarAsignaturaWidget.routeName,
+          path: EditarAsignaturaWidget.routePath,
+          builder: (context, params) => EditarAsignaturaWidget(
+            asignatura: params.getParam<AsignaturaRow>(
+              'asignatura',
+              ParamType.SupabaseRow,
+            ),
+          ),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
